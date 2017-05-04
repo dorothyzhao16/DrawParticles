@@ -86,7 +86,7 @@ public class SandLab
       } else if ((grid[k][j] == 3) && (grid[k][j+1] == 0)) {
          grid[k][j+1] = 3;
          grid[k][j] = 0;
-      } else if ((grid[k][j] == 3) && ((grid[k][j-1] == 0) && (j > 1))) {
+      } else if (((grid[k][j] == 3)&&(j>1)) && ((grid[k][j-1] == 0) && (j > 1))) {
          grid[k][j-1] = 3;
          grid[k][j] = 0;
       } 
