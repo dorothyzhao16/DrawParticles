@@ -67,26 +67,26 @@ public class SandLab
   //causes one random particle to maybe do something.
   public void step()
   {
-      int k = (int)(Math.random()*grid.length-2)+1;
-      int j = (int)(Math.random()*grid[k].length-2)+1;
+      int k = (int)(Math.random()*grid.length-2)+1;    //row 
+      int j = (int)(Math.random()*grid[k].length-2)+1; //column
       
-      if ((grid[k][j] == 2)) {
+      if ((grid[k][j] == 2)) { //original location is sand particle
          
-         if (grid[k+1][j] == 0){
-            grid[k+1][j] = 2;
-            grid[k][j] = 0;
-         } else if (grid[k+1][j] == 3) {
-            grid[k+1][j] = 2;
-            grid[k][j] = 3;
+         if (grid[k+1][j] == 0){ //location below is empty
+            grid[k+1][j] = 2;    //replace said location with sand
+            grid[k][j] = 0;      //replace original location as empty
+         } else if (grid[k+1][j] == 3) { //location below is water
+            grid[k+1][j] = 2;            //replace said location with sand 
+            grid[k][j] = 3;              //replace original location with water
          }
          
-      } else if ((grid[k][j] == 3) && (grid[k+1][j] == 0)) {
+      } else if ((grid[k][j] == 3) && (grid[k+1][j] == 0)) { //original location is water and location directly below is empty
          grid[k+1][j] = 3;
          grid[k][j] = 0;
-      } else if ((grid[k][j] == 3) && (grid[k][j+1] == 0)) {
+      } else if ((grid[k][j] == 3) && (grid[k][j+1] == 0)) { //original location is water and location below right is empty
          grid[k][j+1] = 3;
          grid[k][j] = 0;
-      } else if (((grid[k][j] == 3)&&(j>1)) && ((grid[k][j-1] == 0) && (j > 1))) {
+      } else if (((grid[k][j] == 3)&&(j>1)) && ((grid[k][j-1] == 0) && (j > 1))) { //original location is water and location below left is empty
          grid[k][j-1] = 3;
          grid[k][j] = 0;
       } 
@@ -94,7 +94,7 @@ public class SandLab
 
   }
   
-  //do not modify
+
   public void run()
   {
     while (true)
